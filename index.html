@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رسالة حب إلى أسيل ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            min-height: 100vh;
+            overflow-y: auto; /* السماح بالتمرير */
+            overflow-x: hidden; /* منع التمرير الأفقي */
+            font-family: 'Dancing Script', cursive;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            width: 100%;
+            color: #4a2a2a;
+        }
+
+        .love-letter {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            transform: rotate(-1deg);
+            text-align: center;
+        }
+
+        h1 {
+            color: #e91e63;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            font-size: 1.4em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .signature {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.8em;
+            color: #e91e63;
+            margin-top: 20px;
+        }
+
+        .heart {
+            position: absolute;
+            color: #ff4081;
+            font-size: 24px;
+            pointer-events: none;
+            animation: float 6s linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .exploding-heart {
+            position: absolute;
+            animation: explode 0.8s ease-out forwards;
+            color: #ff1744;
+            font-size: 40px;
+            pointer-events: none;
+        }
+
+        @keyframes explode {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(3);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="love-letter">
+            <h1>إلى حبيبتي أسيل ❤️</h1>
+            <p>قبل أن ألتقيكِ، كنت أرى الحب قصة تُحكى، مجرد كلمات في الأغاني، وأحلام تُنثر في الهواء. لكنكِ أتيتِ وغيرتِ كل شيء. 💖</p>
+            <p>معكِ، أصبح للحياة بريقٌ مختلف، أصبح لكل صباح معنى جديد، وللحلم طموحٌ أجمل. 🌹</p>
+            <p>"وإن كنتُ عنكِ بعيدَ الديار، فحبُّكِ أقربُ من نبضي، وأدفأُ من حضنِ شمسٍ في نهار" 🌺</p>
+            <p>بمناسبة بداية رحلتنا معًا، وفي عيد الحب الأول لنا، أهديكِ قلبي وكل مشاعري. ❤️</p>
+            <p class="signature">مع حبي: زيد ❤️</p>
+        </div>
+    </div>
+
+    <script>
+        // إنشاء القلوب المتساقطة
+        function createFallingHearts() {
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.innerHTML = '❤️';
+                heart.className = 'heart';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = Math.random() * 3 + 4 + 's';
+                document.body.appendChild(heart);
+
+                setTimeout(() => heart.remove(), 6000);
+            }, 300);
+        }
+
+        // إنشاء تأثير انفجار القلب عند النقر
+        function createExplodingHeart(e) {
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️<br><span style="font-size:20px">أسيل</span>';
+            heart.className = 'exploding-heart';
+            
+            const x = e.clientX || e.touches[0].clientX;
+            const y = e.clientY || e.touches[0].clientY;
+            
+            heart.style.left = x + 'px';
+            heart.style.top = y + 'px';
+            
+            document.body.appendChild(heart);
+            
+            setTimeout(() => heart.remove(), 800);
+        }
+
+        // تفعيل الأحداث
+        document.addEventListener('DOMContentLoaded', createFallingHearts);
+        document.addEventListener('click', createExplodingHeart);
+        document.addEventListener('touchstart', createExplodingHeart);
+    </script>
+</body>
+</html>
